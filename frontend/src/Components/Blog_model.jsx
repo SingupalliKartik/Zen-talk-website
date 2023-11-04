@@ -22,7 +22,7 @@ const Blog_model = ({data}) => {
         <div className="flex  justify-between text-xl">
           <p className="text-sm ">By {data.writename} </p> <p className="text-sm text-gray-800">{data.time} </p>
         </div>
-        <button onClick={nextpage}  className=" bg-[#56c394] text-white  px-10 py-2 rounded-xl  my-2 hover:bg-[#028292]">
+        <button onClick={nextpage}  className=" bg-[#74e784] text-white  px-10 py-2 rounded-xl  my-2 hover:bg-[#028292]">
           Read more
         </button>
       </div>
