@@ -21,7 +21,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className=" bg-[url('https://penntoday.upenn.edu/sites/default/files/2022-04/wade-lacey-convergence-teaser.jpg')]">
+    <div className=" bg-[#1d1d1d] ">
       {}
       <div className="fome px-30  space-y-2 justify-center my-3 flex flex-col items-center">
         <div className=" text-4xl font-bold  text-[#56B7C3] ">Blogs</div>

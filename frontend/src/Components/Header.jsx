@@ -1,9 +1,17 @@
 import React from 'react'
 import logo from '../assets/loco.svg'
 import { Link } from 'react-router-dom'
+import Cookies from 'universal-cookie';
+
 const Header = () => {
+//   const cookies = new Cookies();
+
+//   const Logout = ()=>{
+// cookies.remove("Token")
+    
+//   }
   return (
-    <div className=' sticky text-xl bg-[#1B7F8B]    top-2  px-9 py-3 mx-12 rounded-md my-0 flex justify-between align-middle items-cente'>
+    <div className=' sticky text-xl bg-[#1B7F8B]    top-2  px-9 py-3 mx-12 rounded-md my-0 flex justify-between align-middle items-cente '>
     <div className="  font-one">
 <img src={logo} alt="" /> 
     </div>
@@ -14,6 +22,7 @@ const Header = () => {
    <li> <a href="#">Docs</a> </li>
    <li>|</li>
    <li> <Link to="/Blog">Blogs </Link></li>
+   {/* <li> <button onClick={Logout()}>Logout </button> </li> */}
     <li> <a href="#">Contact us</a> </li>
     </ul>
     

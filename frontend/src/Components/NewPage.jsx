@@ -33,7 +33,7 @@ const NewPage = () => {
       <div className=" text-[2.7rem] font-bold  text-[#56B7C3] ">{title}</div>
 
       <div className="  justify-around align-middle flex my-3">
-        <div className="  font-bold">By- {writername}</div>
+        <div className="  font-bold text-white">By- {writername}</div>
 
         <div className="font-bold">{date}</div>
       </div>
@@ -41,10 +41,10 @@ const NewPage = () => {
 <div className=" px-48 my-5">
 
       
-        <img className="w-56 h-65  float-left my-5 mx-6" src={image} alt="" />
+        <img className="w-56 h-65  float-left my-5 mx-6 text-white" src={image} alt="" />
      
 
-      <div className="     clear-right text-[17px] font-Cormorant font-semibold text-xl ">{content}</div>
+      <div className="     clear-right text-[17px] font-Cormorant font-semibold text-xl text-white">{content}</div>
 </div>
     </div>
   );

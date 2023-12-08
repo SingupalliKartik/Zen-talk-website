@@ -1,5 +1,6 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import Cookies from "universal-cookie";
 import s1 from "../assets/social media/l1.svg";
 import s2 from "../assets/social media/l2.svg";
 import s3 from "../assets/social media/l3.svg";
@@ -9,41 +10,35 @@ import lock from "../assets/icons/lock.svg";
 
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
-
-
+  // const cokies = new Cokies();
+  const cookies = new Cookies();
   const [name, checkNamel] = useState();
 
   const [password, checkPassword] = useState();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
-
-  
     e.preventDefault();
-   
     axios
       .post("http://localhost:3001/check", { name, password })
       .then((result) => {
-        console.log(result);
-        if(result.data ==='sucess'){
- toast("Login sucessfull");
-          navigate("/Blog");
-        }
-        else{
-          toast("Username Or pass is incorrect")
+        if (result.status === 201) {
+          toast("Login Hogaya")
+          axios.get("http://localhost:3001/set-cookie").then(()=>{console.log("hogaya")}).catch((err)=>{console.log(err)})
+        } else {
+          toast("Username Or pass is incorrect");
         }
       })
       .catch((err) => {
-        console.log(err);  
-        ;
+        console.log(err);
       });
   };
 
   return (
     <>
-    <div className="flex flex-col h-full font-lato">
+      <div className="flex flex-col h-full font-lato">
         <div className="flex  items-center justify-center   my-6">
           {" "}
           <div className=" bg-[#ffffff] w-1/2  text-center py-12 rounded">
@@ -126,13 +121,13 @@ const Login = () => {
               <p className="text-white items-center w-40  	place-self-center text-sm">
                 To keep connected with us please login with your personal info
               </p>
-              <div> <Link to="/Signup">
-                <button className=" text-white text-sm border-2 my-4 border-white p-2 px-7 rounded-3xl  hover:bg-[#028292] hover:text-white">
-                 
-                 
-                Sign Up
-             
-                </button> </Link>
+              <div>
+                {" "}
+                <Link to="/Signup">
+                  <button className=" text-white text-sm border-2 my-4 border-white p-2 px-7 rounded-3xl  hover:bg-[#028292] hover:text-white">
+                    Sign Up
+                  </button>{" "}
+                </Link>
               </div>
             </div>
           </div>

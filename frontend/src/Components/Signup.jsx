@@ -26,9 +26,8 @@ const Signup = () => {
         console.log(result);
         if(result.status == 404){toast("email already exist")}
         else{
-
           toast("Account created sucessfull");
-          navigate("/Blog");
+          navigate("/");
         }
       })
       .catch((err) => console.log(err));
@@ -46,10 +45,7 @@ const Signup = () => {
               </p>
               <div> <Link to="/" >
                 <button className=" text-white text-sm border-2 my-4 border-white p-2 px-7 rounded-3xl  hover:bg-[#028292] hover:text-white">
-                 
                   Sign In
-           
-            
                 </button>  </Link>
               </div>
             </div>

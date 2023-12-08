@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-     <div className='  bg-[#efe9f4]'>
+     <div className='  bg-[#1d1d1d]'>
       <Router> 
         <Header />
         <Routes>   
