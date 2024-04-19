@@ -22,11 +22,23 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/check", { name, password })
+      .post(
+        "http://localhost:3001/check",
+        { name, password },
+        { withCredentials: true }
+      )
       .then((result) => {
-        if (result.status === 201) {
-          toast("Login Hogaya")
-          axios.get("http://localhost:3001/set-cookie").then(()=>{console.log("hogaya")}).catch((err)=>{console.log(err)})
+        if (result) {
+          console.log(result);
+
+          toast("Login Hogaya");
+          navigate("/Blog");
+          //           setTimeout(()=>{
+          //             axios.get("/set-cookie")
+          //             console.log(result.headers)
+          // console.log(cookies.getAll())
+          //           },3000)
+          //axios.get("http://localhost:3001/set-cookie").then(()=>{console.log("hogaya")}).catch((err)=>{console.log(err)})
         } else {
           toast("Username Or pass is incorrect");
         }

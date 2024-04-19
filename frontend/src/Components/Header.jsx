@@ -2,17 +2,23 @@ import React from 'react'
 import logo from '../assets/loco.svg'
 import { Link } from 'react-router-dom'
 import Cookies from 'universal-cookie';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Header = () => {
-//   const cookies = new Cookies();
+  const cookies = new Cookies();
+  const navigate = useNavigate();
 
-//   const Logout = ()=>{
-// cookies.remove("Token")
-    
-//   }
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    axios
+      .post(
+        "http://localhost:3001/logout",{},{ withCredentials: true }
+      ).then(navigate("/"))
+  }
   return (
-    <div className=' sticky text-xl bg-[#1B7F8B]    top-2  px-9 py-3 mx-12 rounded-md my-0 flex justify-between align-middle items-cente '>
-    <div className="  font-one">
+    <div className='sticky text-xl bg-[#1B7F8B]    top-2  px-9 py-3 mx-12 rounded-md my-0 flex justify-between align-middle items-cente '>
+    <div className="font-one">
 <img src={logo} alt="" /> 
     </div>
 
@@ -22,7 +28,7 @@ const Header = () => {
    <li> <a href="#">Docs</a> </li>
    <li>|</li>
    <li> <Link to="/Blog">Blogs </Link></li>
-   {/* <li> <button onClick={Logout()}>Logout </button> </li> */}
+   <li> <button onClick={handleSubmit}>Logout </button> </li>
     <li> <a href="#">Contact us</a> </li>
     </ul>
     
